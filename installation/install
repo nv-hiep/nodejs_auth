@@ -1,0 +1,95 @@
+*Node.js
+- go to: https://github.com/nodesource/distributions/blob/master/README.md
+# Using Ubuntu
+- curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+- sudo apt-get install -y nodejs
+
+ok!
+Check:
+- node --version
+- npm --version
+
+
+==========================
+* express
+- Create package.json with content:
+{
+	"name": "nodejs_auth",
+	"version": "0.0.1",
+	"private": "true",
+	"dependencies": {
+		"express": "*"
+	}
+}
+- run:
+npm install
+
+- or run: npx express-generator
+for express generator (creating folders/files)
+
+- Can run this to install:
+npm i express bcryptjs passport mongoose connect-flash express-session passport-local
+
+- or: npx express-generator --view=ejs
+then: "cd" to your app
+and run: DEBUG=<your_app>:* npm start 
+e.g: DEBUG=nodejs_myapp:* npm start
+
+restart your browser with port 3000, 
+
+
+
+if your package.json is like this:
+{
+  "name": "nodejs-auth",
+  "version": "0.0.0",
+  "private": true,
+  "main":"app.js",
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.9.24",
+    "morgan": "~1.9.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
+you can run: npm start
+or nodemon start
+
+==================
+
+ok!
+
+
+* Nodemon
+
+- Run: [sudo] npm install -g nodemon
+- Then run: nodemon <your_app>, e.g: nodemon app.js
+- Check your browser -> ok!
+
+
+
+* express-partials
+
+- npm i express-partials
+
+- add to app.js
+-- const partials     = require('express-partials');
+
+// view engine setup
+-- app.use(partials());
+-- app.set('views', path.join(__dirname, 'views'));
+-- app.set('view engine', 'ejs');
